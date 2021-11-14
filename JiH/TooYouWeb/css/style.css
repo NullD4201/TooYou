@@ -1,0 +1,55 @@
+*{
+    position: relative;
+    width: 1440px;
+    height: 1024px;
+
+    background: #FFFFFF;
+}
+/* ad */
+#container > header > div > img {
+    position: absolute;
+    height: 79px;
+    left: 0px;
+    top: 0px;
+
+    transform: translate(-50%);
+}
+/* logo */
+#container > header > div > a > img {
+    position: absolute;
+    width: 120px;
+    height: 78px;
+    left: 43px;
+    top: 85px;
+}
+/* sep */
+#container > header > hr {
+    position: absolute;
+    width: 1440px;
+    height: 0px;
+    left: 0px;
+    top: 168px;
+    
+    border: 1px solid #000000;
+    transform: rotate(0.08deg);
+}
+/* nav 1 */
+#container > header > div > #nav_1 {
+    position: absolute;
+    width: 146px;
+    height: 34px;
+    left: 1076px;
+    top: 135px;
+    
+    background: #C4C4C4;
+}
+/* nav 2 */
+#container > header > div > #nav_2 {
+    position: absolute;
+    width: 146px;
+    height: 34px;
+    left: 1258px;
+    top: 135px;
+
+    background: #C4C4C4;
+}
