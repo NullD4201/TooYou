@@ -6,16 +6,14 @@
     background: #FFFFFF;
 }
 /* ad */
-#container > header > div > img {
+#header > img {
     position: absolute;
     height: 79px;
     left: 0px;
     top: 0px;
-
-    transform: translate(-50%);
 }
 /* logo */
-#container > header > div > a > img {
+#header > a > img {
     position: absolute;
     width: 120px;
     height: 78px;
@@ -23,7 +21,7 @@
     top: 85px;
 }
 /* sep */
-#container > header > hr {
+hr {
     position: absolute;
     width: 1440px;
     height: 0px;
@@ -34,7 +32,7 @@
     transform: rotate(0.08deg);
 }
 /* nav 1 */
-#container > header > div > #nav_1 {
+#nav_1 {
     position: absolute;
     width: 146px;
     height: 34px;
@@ -44,7 +42,7 @@
     background: #C4C4C4;
 }
 /* nav 2 */
-#container > header > div > #nav_2 {
+#nav_2 {
     position: absolute;
     width: 146px;
     height: 34px;
@@ -52,4 +50,9 @@
     top: 135px;
 
     background: #C4C4C4;
+}
+/* contents */
+#container {
+    position: absolute;
+    top: 180px;
 }
