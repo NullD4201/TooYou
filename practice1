@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <body>
+            <!-- <style>
+                .blockTag{
+                    background-color: yellowgreen;
+                }
+                div span{
+                    background-color: tomato;
+                }
+            </style>
+          <div class="blockTag">
+              <div>block 1</div>
+              <div>block 2</div>
+              <div>block 3</div>
+          </div>  
+          <div>
+              <span>inline 1</span>
+              <span>inline 2</span>
+              <span>inline 3</span>
+          </div> -->
+          <!-- <style>
+              li{
+                  list-style: none;
+              }
+          </style>
+          <h1>제목</h1>
+          <li>목록1</li>
+          <li>목록2</li>
+          <li>목록3</li> -->
+          <style>
+              ul li {
+                  list-style: none;
+              }
+              .Colorbutton{
+                  background-color: yellow;
+                  width: 100px;
+                  height: 36px;
+                  border-radius: 10px;
+                  text-align: center;
+                  line-height: 36px ;
+                  color: white;
+                  cursor: pointer;
+              }
+          
+            </style>
+          <form>
+              <ul>
+                  <li>
+                      <input type="text">
+                      <input type="submit">
+                  </li>
+                  <li>
+                    <input type="password">
+                    <input type="submit">
+                </li>
+                <li>
+                    <label><input type="radio" name="fruit" id="orange">오렌지</label>
+                    <label><input type="radio" name="fruit" id="apple">사과</label>
+                    <label><input type="radio" name="fruit" id="strawberry">딸기</label>
+                </li>
+                <li>
+                    <label><input type="checkbox" name="fruit" id="orange">오렌지</label>
+                    <label><input type="checkbox" name="fruit" id="apple">사과</label>
+                    <label><input type="checkbox" name="fruit" id="strawberry">딸기</label>
+                </li>
+                <li>
+                    <input type="button" value="버튼입니다">
+                </li>
+                <li><input type="submit" value="저장하기"></li>
+                <li>
+                    <div class="Colorbutton">버튼입니다</div>
+                </li>
+              </ul>
+              <a href="https://naver.com">네이버 바로가기</a>
+              <img src="img/none.png">
+          </form>
+        </body>
+    </head>
+</html>
