@@ -6,7 +6,7 @@ html {
 body {
     margin: 0;
     height: 100%;
-    background: #f5f6f7;
+    background: #ffe7e3;
     font-family: Dotum,'돋움',Helvetica,sans-serif;
 }
 #logo {
@@ -167,7 +167,7 @@ select {
     border: 0;
     cursor: pointer;
     color: #fff;
-    background-color: violet;
+    background-color: #f66c5f;
     border-radius: 10px;
     font-size: 20px;
     font-weight: 400;
