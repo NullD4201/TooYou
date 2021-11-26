@@ -1,64 +1,60 @@
-<!doctype html>
+<!doctype html> 
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+        <title>TooYou</title>
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" type="text/css" href="./fontawesome/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="./style.css">
+        <link rel="stylesheet" type="text/css" href="./image.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <body>
-        <div class="wrap">
-            <div class="intro">
-                <div class="intro_banner">
-                    <a href="#"><img src="image/IMG_5038.PNG"></a>
-                </div>
-                <div class="intro_Menu">
-                    <div class="logo">
-                        <a href="./home.html"><img src="./image/logo.png" height = "70px"></a>
-                    </div>
-                    <ul class="nav">
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">ABOUT</a></li>
-                        <li><a href="#">SERVICE</a></li>
-                        <li><a href="#">CONTACT</a></li>
-                    </ul>
-                    <ul class="login">
-                        <li><input type="id" placeholder="ID"></li>
-                        <li><input type="password" placeholder="Password"></li>
-                        <li><div class="button_login">로그인</div></li>
-                        <li>&#124;</li>
-                        <li><a href="#">회원가입</a></li>
-                    </ul>
-                </div>
-                <div class="intro_bg">
-                    <div class="header">
-                        <div class="searchArea">
-                            <form>
-                            <input type="search" placeholder="Search" style="color: #fff; font-size: 12pt;">
-                            <span>검색</span>
-                            </form>
-                        </div>
-                    </div>
+        <header class="site-header">
+            <div class="header-left">
+                <div class="title clickable">TooYou</div>
+                <div class="header-menu">
+                    <div class="menu clickable">Home</div>
+                    <div class="menu clickable">About</div>
+                    <div class="menu clickable">Service</div>
+                    <div class="menu clickable">Contact</div>
                 </div>
             </div>
-
-            <div>
-                <div class="category">
-                    <a onclick="location.href='/JiH/TooYouWeb/image.html'"><img src="./image/중간배너1.jpg"></a>
-                    <a onclick="location.href='/JiH/TooYouWeb/video.html'"><img src="./image/중간배너2.jpg"></a>
-                    <a href="#"><img src="./image/중간배너3.jpg"></a>
+            <div class="header-right"><i class="clickable fas fa-user"></i></div>
+        </header>
+        <section class="wrapper">
+            <div class="search-area">
+                <div class="title">영상 편집자, 일러스트레이터를 찾고 있다면?</div>
+                <div class="search-box">
+                    <input class="input-area" name="input" placeholder="누구를 찾고 있나요?">
+                    <div class="search-button"><i class="clickable fas fa-search fa-lg"></i></div>
                 </div>
             </div>
-            <div class="footer">
-                <div class="footerArea">
-                    <img src="./image/logo.png" height="50px">
-                    <div class="info">
-                      <h1>투유</h1>
-                      <h2>CONTACT: tooyou@tooyou.com</h2>
-                    </div>
+            <div class="area">
+                <div class="title">이런 사람을 찾고 계시나요?</div>
+                <div class="image-view">
+                    <div class="image-wrapper"><div class="image middle-banner-1 clickable">유튜브 편집/썸네일</div></div>
+                    <div class="image-wrapper"><div class="image middle-banner-2 clickable">일러스트/이모티콘/캐릭터</div></div>
+                    <div class="image-wrapper"><div class="image middle-banner-3 clickable">방송 매니저</div></div>
+                    <div class="image-wrapper"><div class="image">준비중</div></div>
                 </div>
             </div>
-        </div>
+        </section>
+        <footer class="site-footer">
+            <div class="footer-wrapper">
+                <div class="logo-wrapper">
+                    <div class="logo"></div>
+                    <div class="logo"></div>
+                </div>
+                <div class="information">
+                    <p>NullD. 010-0000-0000</p>
+                    <p>NullD. 010-0000-0000</p>
+                    <p>NullD. 010-0000-0000</p>
+                </div>
+            </div>
+        </footer>
+        <script type="text/javascript" src="./index.js"></script>
     </body>
 </html>
