@@ -1,0 +1,120 @@
+.wrapper {
+    width: 100%;
+    background-color: #f6f8fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-area {
+    width: 100%;
+    height: 200px;
+    background-color: #555;
+    border-bottom: 1px solid #d8dee4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.title-area .title {
+    color: #fff;
+    max-width: 800px;
+    text-align: center;
+    margin: 0 20px 15px 20px;
+    font-size: 2.5rem;
+    font-weight: 900;
+    word-break: keep-all;
+}
+
+.main {
+    padding: 20px;
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+}
+
+.main .sidebar {
+    margin-right: 10px;
+    width: 200px;
+    height: 100%;
+    border: 2px solid #e4e4e4;
+    border-radius: 10px;
+}
+.main .sidebar .item {
+    padding: 5px 10px;
+    border-bottom: 2px solid #e4e4e4;
+    color: #595959;
+}
+.main .sidebar .item:hover {
+    background-color: #c3ebff;
+}
+.main .sidebar .item.first {
+    border-radius: 8px 8px 0 0;
+}
+.main .sidebar .item.last {
+    border-radius: 0 0 8px 8px;
+    border-bottom: transparent;
+}
+.main .sidebar .item.selected {
+    background-color: #0969da;
+    color: #fff;
+}
+
+.list {
+    padding: 20px 0;
+    max-width: 800px;
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.list .head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.list .title {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.list .image-view {
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.list .image-view .image-wrapper {
+    margin-bottom: 10px;
+    width: 240px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.list .image-view .image-wrapper .image {
+    padding: 5px;
+    width: 200px;
+    height: 150px;
+    background-color: #333;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 3px grey;
+}
+.list .image-view .image-wrapper .image-title {
+    padding: 0 20px;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+.list .image-view .image-wrapper .image-value {
+    padding: 0 20px;
+    width: 100%;
+    text-align: center;
+}

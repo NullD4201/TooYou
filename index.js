@@ -1,28 +1,73 @@
-$('.wrapper .area .image-view .image').hover(function () { // .wrapper .area .image-view .image에 해당하는 놈에 손이 올라갔을 때
-    let $this = $(this); // this는 html태그, 해당 html태그를 jQuery로 감싸 jQuery에서 컨트롤 가능하게 만들어 저장
-    if (!$this.hasClass('clickable')) return; // 태그가 clickable 클래스를 갖고 있으면 무시
-    $this.stop().animate({ // 기존 실행중이던 애니메이션을 중단시키고, 새 애니메이션 실행
-        width: '310px', // width, height, lineHeight 조정
-        height: '210px',
-        lineHeight: '380px'
-    }, 100); // milliseconds단위 애니메이션 시간
-}, function () {
-    let $this = $(this);
-    if (!$this.hasClass('clickable')) return;
-    $this.stop().animate({
-        width: '300px',
-        height: '200px',
-        lineHeight: '360px'
-    }, 100);
-});
-// hover의 첫번째 function을 마우스를 올리면 작동, 두번째 function은 마우스가 떠날때 작동.
+const fs = require('fs'); // file system 파일 입출력을 담당하는 모듈.const
 
-let $input = $('.wrapper .search-area .search-box .input-area');
-let $box = $('.wrapper .search-area .search-box');
+let gdata = '';
+fs.readFile('./test.txt', { encoding: 'utf-8' }, (err, data) => {
+    // 지금은 비동기 로직.
+    // blocking작업이네? -> 시간이 걸리는 작업이네? -> 오케이 프로세스 분리!
+    if (err) console.log(err);
+    else gdata = data;
+}); // 지금 이 원리가 이따가 만들 DB CRUD에도 똑같이 적용됨.
+// CRUD도 blocking작업이라, 동기 방식으로 작동되게 로직을 짜줘야 되요.
+console.log(gdata);
 
-$input.blur(function () {
-    $box.css('outline', '1px solid #24292f');
-});
-$input.focus(function () {
-    $box.css('outline', '3px solid #04090f');
-});
+function first() {
+    return new Promise((resolve, reject) => {
+        // Promise를 반환하는 함수
+        // Promise를 반환하겠다고 선언 -> 자동으로 blocking작업을 시행하는 함수
+        // 프로세스를 자동으로 분리해줌.
+
+        resolve('1'); // resolve를 사용하여 실제 반환할 값을 전달
+        // reject는 에러를 반환 = throw new Error()
+    });
+}
+
+// then
+
+// first()
+//     .then((data) => {
+//         console.log(data);
+//     })
+//     .catch((err) => {
+//         // 다른 프로세스에서 발생한 에러네? 처리하고 계속 실행하자.
+//         console.log(err);
+//     });
+
+// 위와 같은 Promise구문을 'callback 구문'
+// node.js에는 이 callback을 더욱 간편하게 처리할 수 있게 만들어놓은 게 존재.
+// async ~ await 구문.
+
+// async function main() {
+//     try {
+//         let data = await first();
+//         console.log(data);
+//         return data;
+//     } catch (err) {
+//         console.log(err);
+//     }
+// }
+
+function main() {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let data = await first();
+            console.log(data);
+            resolve(data);
+        } catch (err) {
+            console.log(err);
+            reject(err);
+        }
+    });
+}
+
+/**
+ * let result = input(); <- blocking 작업
+ * console.log(result); <- non-blocking 작업
+ *
+ * Syncing 작업 non-Syncing작업 (동기 작업과 비동기 작업)
+ *
+ * Thread Process
+ *
+ * Scanner sc = new Scanner(System.in); <- blocking 작업
+ * System.out.printLn(); <- non-blocking 작업
+ *
+ */

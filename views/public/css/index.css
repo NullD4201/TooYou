@@ -1,0 +1,103 @@
+
+.wrapper {
+    width: 100%;
+    background-color: #f6f8fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper .search-area {
+    width: 100%;
+    height: 406px;
+    background-color: #fff;
+    border-bottom: 1px solid #d8dee4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper .search-area .title {
+    max-width: 800px;
+    text-align: center;
+    margin: 0 20px 15px 20px;
+    font-size: 2.5rem;
+    font-weight: 900;
+    word-break: keep-all;
+}
+.wrapper .search-area .search-box {
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    outline: 1px solid #24292f;
+    display: flex;
+    text-align: center;
+}
+.wrapper .search-area .search-box .input-area {
+    padding: 0 10px;
+    width: 100%;
+    border: transparent;
+    border-radius: 10px;
+    cursor: text;
+}
+.wrapper .search-area .search-box .input-area:focus {
+    outline: none;
+}
+.wrapper .search-area .search-box .input-area::placeholder {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+}
+.wrapper .search-area .search-box .search-button {
+    height: 40px;
+    width: 40px;
+    color: #24292f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper .area {
+    margin: 20px 0 10px 0;
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.wrapper .area .title {
+    width: 100%;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.wrapper .area .image-view {
+    margin: 10px 0;
+    max-width: 690px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.wrapper .area .image-view .image-wrapper {
+    width: 340px;
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper .area .image-view .image {
+    padding: 5px;
+    width: 300px;
+    height: 200px;
+    background-color: #333;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 3px grey;
+    line-height: 360px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1rem;
+}

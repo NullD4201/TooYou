@@ -1,0 +1,37 @@
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+// User 테이블 생성 (create table user;)
+model User {
+    // @id = TABLE의 키값 @unique 유니크한 값(중복X) @default(uuid()) = uuid형식 자동생성
+    // String 형식 = VARCHAR
+    uuid     String @id @unique @default(uuid())
+    loginId  String
+    password String
+    pwsalt   String
+    name     String
+    email    String
+    posts    Post[]
+}
+
+model Category {
+    id    Int    @id @unique @default(autoincrement())
+    name  String
+    posts Post[]
+}
+
+model Post {
+    uuid         String   @id @unique @default(uuid())
+    author       User     @relation(fields: [authorId, authorName], references: [uuid, name])
+    authorId     String
+    authorName   String
+    title        String
+    category     Category @relation(fields: [categoryName], references: [name])
+    categoryName String
+}

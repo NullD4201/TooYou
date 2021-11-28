@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <title><%= title %></title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="./fontawesome/css/all.min.css"
+        />
+        <link rel="stylesheet" type="text/css" href="./fonts/fonts.css" />
+        <% for (let i = 0; i < css.length; i++) { %>
+        <link rel="stylesheet" href="/css/<%= css[i] %>.css" />
+        <% } %>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <% if (isLogin == true) { %>
+        <div id="popup-user" style="display: none">
+            <a class="title clickable">
+                로그인 중 :<br />
+                <div class="head"><%= userData.name %></div>
+            </a>
+            <hr />
+            <a class="menu clickable">내 정보</a>
+            <a class="menu clickable">내 프로젝트</a>
+            <hr />
+            <a id="logout" class="menu clickable" href="/api/users/logout"
+                >로그아웃</a
+            >
+        </div>
+        <% } %>
+        <header class="site-header">
+            <div class="header-left">
+                <a class="title clickable" href="/">TooYou</a>
+                <div class="header-menu">
+                    <div class="menu clickable">About</div>
+                    <div class="menu clickable">Service</div>
+                    <div class="menu clickable">Contact</div>
+                    <a class="menu clickable" href="/people">People</a>
+                </div>
+            </div>
+            <div class="header-right">
+                <% if (isLogin == false) { %>
+                <a id="login" class="menu-select clickable" href="/login">
+                    <i class="fas fa-sign-in-alt clickable"></i>
+                </a>
+                <% } else { %>
+                <div class="menu-select clickable" id="user-popup">
+                    <i class="fas fa-user clickable"></i>
+                </div>
+                <% } %>
+            </div>
+        </header>
+        <section class="wrapper"><%- content %></section>
+        <footer class="site-footer">
+            <div class="footer-wrapper">
+                <div class="logo-wrapper">
+                    <a class="logo" href="https://ssu.ac.kr/"></a>
+                    <a class="logo" href="https://fun.ssu.ac.kr/"></a>
+                </div>
+                <div class="information">
+                    <p>NullD. 010-0000-0000</p>
+                    <p>NullD. 010-0000-0000</p>
+                    <p>NullD. 010-0000-0000</p>
+                </div>
+            </div>
+        </footer>
+        <% for (let i = 0; i < js.length; i++) { %>
+        <script src="/js/<%= js[i] %>.js"></script>
+        <% } %>
+    </body>
+</html>
