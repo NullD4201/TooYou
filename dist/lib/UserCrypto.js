@@ -39,7 +39,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserCrypto = void 0;
 var util_1 = require("util");
 var crypto = require("crypto");
-// 암호화 함수를 동기 함수로 변환
 var randomBytesAsync = (0, util_1.promisify)(crypto.randomBytes);
 var UserCrypto = /** @class */ (function () {
     function UserCrypto() {
@@ -52,9 +51,7 @@ var UserCrypto = /** @class */ (function () {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
                         return [4 /*yield*/, randomBytesAsync(64)];
-                    case 1: 
-                    // 랜덤한 64개의 바이트를 만들어, base64인코딩 (완전 무작위)
-                    return [2 /*return*/, (_a.sent()).toString('base64')];
+                    case 1: return [2 /*return*/, (_a.sent()).toString('base64')];
                     case 2:
                         e_1 = _a.sent();
                         throw e_1;
@@ -67,7 +64,7 @@ var UserCrypto = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var hashed;
             return __generator(this, function (_a) {
-                hashed = crypto // 평문에 salt를 sha512 방식으로 9999번 섞고 64바이트로 출력
+                hashed = crypto
                     .pbkdf2Sync(password, salt, 9999, 64, 'sha512')
                     .toString('base64');
                 return [2 /*return*/, hashed];

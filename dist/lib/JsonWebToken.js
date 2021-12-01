@@ -38,15 +38,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.JsonWebToken = void 0;
 var jwt = require("jsonwebtoken");
-require("dotenv/config"); // 루트의 .env파일을 가져와 process.env에 넣어줍니다.
-var SECRET_KEY = // process.env의 JWT_SECRET이 있으면 해당 키를 사용, 없으면 TOOYOUSECRETKEY라는 키를 사용합니다.
- process.env.JWT_SECRET !== undefined
+require("dotenv/config");
+var SECRET_KEY = process.env.JWT_SECRET !== undefined
     ? process.env.JWT_SECRET
     : 'TOOYOUSECRETKEY';
 var JsonWebToken = /** @class */ (function () {
     function JsonWebToken() {
     }
-    // JsonWebToken 클래스 (static 함수만 있어요)
     JsonWebToken.generateToken = function (payload) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -54,9 +52,7 @@ var JsonWebToken = /** @class */ (function () {
                     case 0: return [4 /*yield*/, jwt.sign(payload, SECRET_KEY, {
                             expiresIn: '7d',
                         })];
-                    case 1: 
-                    // JWT를 생성합니다. payload에 원하는 object를 넣어주면 해당 키를 KEY와 함께 7일동안 유효한 토큰으로 암호화해줍니다.
-                    return [2 /*return*/, _a.sent()];
+                    case 1: return [2 /*return*/, _a.sent()];
                 }
             });
         });
@@ -66,9 +62,7 @@ var JsonWebToken = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, jwt.verify(token, SECRET_KEY)];
-                    case 1: 
-                    // JWT를 파싱합니다. token에 JWT를 넣어주면 해당 토큰을 해석해 Object(JwtPayload)형식으로 반환합니다.
-                    return [2 /*return*/, _a.sent()];
+                    case 1: return [2 /*return*/, _a.sent()];
                 }
             });
         });
@@ -76,5 +70,5 @@ var JsonWebToken = /** @class */ (function () {
     return JsonWebToken;
 }());
 exports.JsonWebToken = JsonWebToken;
-exports.default = JsonWebToken; // import JsonWebToken from 'JsonWebToken'; <- "node.js"에선 파일 확장자의 .js 및 .ts는 생략 가능합니다. "deno"에선 불가능!
+exports.default = JsonWebToken;
 //# sourceMappingURL=JsonWebToken.js.map

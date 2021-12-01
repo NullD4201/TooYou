@@ -3,37 +3,40 @@
 </div>
 <div class="main">
     <div class="sidebar">
-        <div class="clickable item first selected">전체</div>
-        <div class="clickable item">유튜브 편집/썸네일</div>
-        <div class="clickable item">일러스트/이모티콘/캐릭터</div>
-        <div class="clickable item last">방송 매니저</div>
+        <div class="clickable item first selected" onclick="setCategory(0)">
+            전체
+        </div>
+        <% for (let i = 0; i < categories.length; i++) {%>
+        <div
+            class="clickable item<% if (i == categories.length-1) { %> last<% } %>"
+            onclick="setCategory(<%= i+1 %>)"
+        >
+            <%= categories[i] %>
+        </div>
+        <% } %>
     </div>
     <div class="list">
         <div class="head">
             <div class="title">전체보기</div>
-            <button>등록</button>
+            <% if (isLogin) { %>
+            <button class="clickable new" onclick="location.href='/post';">
+                등록
+            </button>
+            <% } %>
         </div>
         <div class="image-view">
+            <% for (let i = 0; i < posts.length; i++) { %>
             <div class="image-wrapper">
-                <div class="image middle-banner-1 clickable"></div>
-                <div class="image-title clickable">유튜브 편집/썸네일</div>
-                <div class="image-value">Creator A</div>
+                <div
+                    class="image clickable"
+                    style="background-image: url(<%= posts[i].imageLink %>)"
+                ></div>
+                <div class="image-title clickable"><%= posts[i].title %></div>
+                <div class="image-value">By <%= posts[i].author.name %></div>
             </div>
-            <div class="image-wrapper">
-                <div class="image middle-banner-2 clickable"></div>
-                <div class="image-title clickable">일러스트/이모티콘/캐릭터</div>
-                <div class="image-value">Creator B</div>
-            </div>
-            <div class="image-wrapper">
-                <div class="image middle-banner-3 clickable"></div>
-                <div class="image-title clickable">방송 매니저</div>
-                <div class="image-value">Creator C</div>
-            </div>
-            <div class="image-wrapper">
-                <div class="image middle-banner-3 clickable"></div>
-                <div class="image-title clickable">방송 매니저</div>
-                <div class="image-value">Creator D</div>
-            </div>
+            <% } %> <% if (posts.length == 0) { %>
+            <div class="image-wrapper">알맞은 결과가 없습니다.</div>
+            <% } %>
         </div>
     </div>
 </div>

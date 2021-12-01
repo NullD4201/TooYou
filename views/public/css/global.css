@@ -24,6 +24,23 @@ body {
     cursor: pointer;
 }
 
+.image.middle-banner-1 {
+    background: url('../image/중간수정배너1.jpg');
+}
+.image.middle-banner-2 {
+    background: url('../image/중간수정배너2.jpg');
+}
+.image.middle-banner-3 {
+    background: url('../image/중간수정배너3.jpg');
+}
+
+.logo.school {
+    background: url('../image/school.png');
+}
+.logo.github {
+    background: url('../image/github.png');
+}
+
 .site-header {
     width: 100%;
     height: 62px;
@@ -83,7 +100,6 @@ body {
 }
 .site-footer .footer-wrapper .logo-wrapper .logo {
     margin: 10px;
-    background-color: rgb(56, 56, 255);
     background-size: cover;
     background-position: center;
     width: 60px;
@@ -91,6 +107,7 @@ body {
 }
 .site-footer .footer-wrapper .information {
     margin: 4px;
+    margin-left: 15px;
     text-align: left;
 }
 

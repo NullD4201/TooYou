@@ -1,8 +1,8 @@
-let idValue = '';
-let pwValue = '';
-let pwCheckValue = '';
-let nameValue = '';
-let emailValue = '';
+let idValue = $('#id-input').val();
+let pwValue = $('#pw-input').val();
+let pwCheckValue = $('#pw-check-input').val();
+let nameValue = $('#name-input').val();
+let emailValue = $('#email-input').val();
 
 let idRegExp = /([A-Za-z0-9])\w+/;
 let emailRegExp =
@@ -56,3 +56,5 @@ $('#email-input').on('propertychange change keyup paste input', function () {
     emailValue = $(this).val();
     checkValue();
 });
+
+checkValue();

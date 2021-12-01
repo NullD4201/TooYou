@@ -52,22 +52,48 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PeoplePageRouter = void 0;
+var PostManager_1 = require("../lib/PostManager");
 var Router_1 = require("../lib/Router");
 var PeoplePageRouter = /** @class */ (function (_super) {
     __extends(PeoplePageRouter, _super);
     function PeoplePageRouter() {
         var _this = _super.call(this) || this;
         _this._router.get('/', function (ctx, next) { return __awaiter(_this, void 0, void 0, function () {
-            var renderRes;
-            return __generator(this, function (_a) {
-                renderRes = this.renderLayout(ctx, ['people.ejs'], {
-                    stylesheets: ['people', 'image'],
-                    javascripts: ['people']
-                });
-                ctx.status = 200;
-                ctx.type = 'text/html; charset=utf-8';
-                ctx.body = renderRes;
-                return [2 /*return*/];
+            var _a, page, cut, category, ppage, ccut, ccategory, posts, categories, renderRes;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = ctx.query, page = _a.page, cut = _a.cut, category = _a.category;
+                        ppage = 1, ccut = 500, ccategory = 0;
+                        if (typeof page === 'string')
+                            ppage = parseInt(page);
+                        if (typeof cut === 'string')
+                            ccut = parseInt(cut);
+                        if (typeof category === 'string')
+                            ccategory = parseInt(category);
+                        return [4 /*yield*/, PostManager_1.default.getPost(ctx, {
+                                cut: ccut,
+                                page: ppage,
+                                category: ccategory,
+                            })];
+                    case 1:
+                        posts = _b.sent();
+                        return [4 /*yield*/, PostManager_1.default.getCategory(ctx)];
+                    case 2:
+                        categories = (_b.sent()).values();
+                        renderRes = this.renderLayout(ctx, ['people.ejs'], {
+                            stylesheets: ['people', 'image'],
+                            javascripts: ['people'],
+                            data: {
+                                categories: Array.from(categories),
+                                posts: posts,
+                            },
+                        });
+                        ctx.status = 200;
+                        ctx.type = 'text/html; charset=utf-8';
+                        ctx.body = renderRes;
+                        return [2 /*return*/];
+                }
             });
         }); });
         return _this;

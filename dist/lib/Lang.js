@@ -39,8 +39,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Lang = void 0;
 var fs = require("fs");
 var path = require("path");
-// 대충 만들어놓은 언어 모듈 (by Tilto_)
-// root의 lang폴더에서 정해진 규칙에 맞게 언어 설정을 불러옵니다.
 var Lang = /** @class */ (function () {
     function Lang() {
     }

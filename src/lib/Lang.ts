@@ -1,8 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-// 대충 만들어놓은 언어 모듈 (by Tilto_)
-// root의 lang폴더에서 정해진 규칙에 맞게 언어 설정을 불러옵니다.
 export class Lang {
     static async getLangByCode(lang: string, code: string) {
         if (code.split(':').length > 1) {

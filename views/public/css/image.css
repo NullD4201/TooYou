@@ -10,8 +10,12 @@
 }
 
 .logo.school {
-    background: url('');
+    background: url('../image/school.png');
 }
-.logo.contest {
-    background: url('');
+.logo.github {
+    background: url('../image/github.png');
 }
+/* 
+.image.creator-1 {
+    background-image: url('../image/intro.png');
+} */

@@ -14,7 +14,7 @@ export interface renderLayoutOption {
     title?: string;
     stylesheets?: string[];
     javascripts?: string[];
-    data?: Record<string, any>;
+    data?: object;
 }
 export declare class Router {
     protected _router: KoaRouter;

@@ -25,7 +25,6 @@ var fs = require("fs");
 var p = require("path");
 var koa_ejs_1 = require("koa-ejs");
 var KoaRouter = require("koa-router");
-var Logger_1 = require("./Logger");
 var Router = /** @class */ (function () {
     function Router() {
         this._router = new KoaRouter();
@@ -49,35 +48,16 @@ var Router = /** @class */ (function () {
     };
     Router.prototype.renderLayout = function (ctx, renderTarget, options) {
         if (options === void 0) { options = {}; }
-        var layout = fs.readFileSync(
-        // layout.ejs를 읽어온다
-        p.join(__dirname, '..', '..', 'views', 'layout.ejs'), 'utf-8');
-        var target = fs.readFileSync(
-        // renderTarget을 읽어온다
-        p.join.apply(
-        // renderTarget을 읽어온다
-        p, __spreadArray([__dirname, '..', '..', 'views'], renderTarget, false)), 'utf-8');
-        /**
-         * b = ['d', 'e']
-         * a = ['a', 'b', 'c', ...b]
-         *
-         * console.log(a); <- ['a', 'b', 'c', ['d', 'e']]];
-         */
-        var title = options.title // options.title이 존재한다면
-            ? options.title // options.title을 설정하고
-            : 'TooYou'; // 아니라면 기본 title사용
-        var css = options.stylesheets // options.stylesheets가 있다면
-            ? __spreadArray(['global'], options.stylesheets, true) : ['global']; // 아니라면 global만 배열에 넣는다.
-        var js = options.javascripts // css와 동일
+        var layout = fs.readFileSync(p.join(__dirname, '..', '..', 'views', 'layout.ejs'), 'utf-8');
+        var target = fs.readFileSync(p.join.apply(p, __spreadArray([__dirname, '..', '..', 'views'], renderTarget, false)), 'utf-8');
+        var title = options.title ? options.title : 'TooYou';
+        var css = options.stylesheets
+            ? __spreadArray(['global'], options.stylesheets, true) : ['global'];
+        var js = options.javascripts
             ? __spreadArray(['global'], options.javascripts, true) : ['global'];
         var gd = Router.getGlobalData(ctx);
-        Logger_1.default.log(gd);
-        var renderResult = koa_ejs_1.ejs.render(layout, __assign(__assign({ 
-            // ejs의 render를 실행하는데, layout을 render
-            title: title, content: koa_ejs_1.ejs.render(target, __assign(__assign({ 
-                // target을 render하여 layout의 content로 넘겨준다
-                title: title }, options.data), gd)), css: css, js: js }, options.data), gd));
-        return renderResult; // render된 layout을 반환.
+        var renderResult = koa_ejs_1.ejs.render(layout, __assign(__assign({ title: title, content: koa_ejs_1.ejs.render(target, __assign(__assign({ title: title }, options.data), gd)), css: css, js: js }, options.data), gd));
+        return renderResult;
     };
     Object.defineProperty(Router.prototype, "router", {
         get: function () {

@@ -1,5 +1,5 @@
-let idValue = '';
-let pwValue = '';
+let idValue = $('#id-input').val();
+let pwValue = $('#pw-input').val();
 
 let idRegExp = /([A-Za-z0-9])\w+/g;
 
@@ -31,3 +31,5 @@ $('#pw-input').on('propertychange change keyup paste input', function () {
     pwValue = $(this).val();
     checkValue();
 });
+
+checkValue();

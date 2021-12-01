@@ -194,23 +194,30 @@ var UserAPIRouter = /** @class */ (function (_super) {
             });
         }); });
         _this._router.post('/register', function (ctx, next) { return __awaiter(_this, void 0, void 0, function () {
-            var body, user, err_4;
+            var body, user, jwt, err_4;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         body = ctx.request.body;
                         _a.label = 1;
                     case 1:
-                        _a.trys.push([1, 3, , 4]);
+                        _a.trys.push([1, 4, , 5]);
                         return [4 /*yield*/, UserAPIRouter.registerUser(ctx, body)];
                     case 2:
                         user = _a.sent();
+                        return [4 /*yield*/, UserAPIRouter.loginUser(ctx, body.loginId, body.password)];
+                    case 3:
+                        jwt = _a.sent();
+                        ctx.cookies.set('access_token', jwt, {
+                            httpOnly: true,
+                            maxAge: 1000 * 60 * 60 * 24 * 7,
+                        });
                         if (user)
                             ctx.redirect('/');
                         else
                             ctx.redirect("/register?id=".concat(body.loginId, "&message=BLE:NONE"));
-                        return [3 /*break*/, 4];
-                    case 3:
+                        return [3 /*break*/, 5];
+                    case 4:
                         err_4 = _a.sent();
                         if (err_4.message && err_4.message.startsWith('BLE:')) {
                             ctx.redirect("/register?id=".concat(body.loginId, "&message=").concat(err_4.message));
@@ -218,8 +225,8 @@ var UserAPIRouter = /** @class */ (function (_super) {
                         else {
                             Logger_1.default.error(err_4);
                         }
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/];
+                        return [3 /*break*/, 5];
+                    case 5: return [2 /*return*/];
                 }
             });
         }); });

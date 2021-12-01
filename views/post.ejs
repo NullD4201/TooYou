@@ -1,0 +1,31 @@
+<div class="post-box">
+    <form action="/api/posts/create" method="POST" class="post-form">
+        <div class="post-title">새 게시글 작성</div>
+        <div class="form-input-wrapper">
+            <div class="input-title">제목</div>
+            <input type="text" class="text-input" name="title" />
+        </div>
+        <div class="form-input-wrapper">
+            <div class="input-title">메인 이미지 링크</div>
+            <input type="text" class="text-input" name="imageLink" />
+        </div>
+        <div class="form-input-wrapper">
+            <div class="input-title">기타 포트폴리오 링크</div>
+            <input type="text" class="text-input" name="hyperLink" />
+        </div>
+        <div class="form-input-wrapper">
+            <div class="input-title">카테고리</div>
+            <select class="option-input" name="category">
+                <% for (let i = 0; i < categories.length; i++) {%>
+                <option value="<%= i+1 %>"><%= categories[i] %></option>
+                <% } %>
+            </select>
+        </div>
+        <div class="form-input-wrapper">
+            <div class="input-title">설명</div>
+            <textarea class="textarea-input" name="description"></textarea>
+        </div>
+
+        <button type="submit" class="clickable form-submit">등록</button>
+    </form>
+</div>
